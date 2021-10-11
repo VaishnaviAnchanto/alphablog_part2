@@ -16,8 +16,8 @@ class BloggersController < ApplicationController
     end
     
     def require_same_blogger
-        if current_blogger != @blogger
-          flash[:alert] = "You can only edit your own account"
+        if current_blogger != @blogger && !current_useradmin?
+          flash[:alert] = "You can only edit or delete your own account"
           redirect_to @blogger
         end
     end

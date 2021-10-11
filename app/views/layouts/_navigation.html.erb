@@ -33,7 +33,7 @@
             <% if blogger_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= current_blogger.email%>
+                <%= "(Admin)" if current_blogger.admin? %> Profile [<%= current_blogger.email%>]
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               
