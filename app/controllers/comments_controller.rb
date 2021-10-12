@@ -13,7 +13,7 @@
             redirect_back fallback_location: @article
         else
             flash.now[:alert]="Fill correct details"
-           
+            render 'new'
         end
     end
 
