@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
 
   resources :bloggers , only: [:show ,:index]
+
+  resources :comments, only: [:new,:create]
+
   
 end

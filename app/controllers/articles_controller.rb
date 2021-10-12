@@ -3,6 +3,7 @@ class ArticlesController <ApplicationController
 def show
     #byebug
   @article=Article.find(params[:id])
+  @comments= @article.comments.order('comments.created_at DESC')
 end
 
 def index

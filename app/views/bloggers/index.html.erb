@@ -14,9 +14,14 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= pluralize(blogger.articles.count,"article") %></h5>
                     <%= link_to "View Profile", blogger_path(blogger), class: "btn btn btn-outline-success" %>
-                    <% if blogger_signed_in? && blogger==current_blogger %>
+                    <% if blogger_signed_in? %>
+                    <% if blogger==current_blogger %>
                         <%= link_to "Edit Profile", edit_blogger_registration_path(current_blogger), class: "btn btn-outline-primary" %>
                     <% end %>    
+                    <% if current_blogger.admin? %>
+                        <% link_to "Delete user",blogger_path(blogger), class:"btn btn-outline-danger",method: :delete,
+                        data: {confirm: "Are you sure you want to delete all information associated to it? "} %>
+                    <% end %>
                 </div>
         <div class="card-footer text-muted">
             <small>
