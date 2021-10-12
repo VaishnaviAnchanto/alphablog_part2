@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_114347) do
+ActiveRecord::Schema.define(version: 2021_10_11_183904) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2021_10_11_114347) do
     t.boolean "admin", default: false
     t.index ["email"], name: "index_bloggers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_bloggers_on_reset_password_token", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "article_id"
+    t.integer "blogger_id"
   end
 
   create_table "users", force: :cascade do |t|
